@@ -1,0 +1,14 @@
+/* Responsive Styles */
+@media all and (min-width: 650px) {
+  .post {
+    margin-bottom: 20px;
+    width: 600px;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .post {
+    margin-bottom: 20px;
+    width: 90%;
+  }
+}

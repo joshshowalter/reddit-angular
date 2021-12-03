@@ -1,0 +1,19 @@
+
+<div *ngIf="data" style="width: 650px">
+  <post
+    [post]="data"
+  ></post>
+
+  <mat-card style="margin-top: 15px">
+    <mat-card-title>
+      Comments
+    </mat-card-title>
+    <mat-card-content>
+      <div *ngFor="let comment of data.comments">
+        <comment
+          [comment]="comment"
+        ></comment>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,63 @@
+<mat-card [@enterAnimation] (click)="click()">
+  <mat-card-header>
+    <mat-card-title>
+      {{ title }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ post.subreddit_name_prefixed }} • 
+      <span style="font-weight: 100">{{ author }}</span>
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="center" style="width: 100%">
+      <div 
+        *ngIf="embeddedHtml" 
+        style="width: 100%"
+        [innerHTML]="embeddedHtml | noSanitize"
+      ></div>
+
+      <img *ngIf="!embeddedHtml && preview"
+        class="image-width"
+        src="{{ preview }}"
+      />
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <div class="action-group center">
+      <button mat-icon-button 
+        [ngClass]="{'upvoted': hasUpvoted}"
+        (click)="upvote(); $event.stopPropagation()"
+      >
+        <mat-icon>thumb_up</mat-icon>
+      </button>
+      <span>{{ upvotes }}</span>
+      <button mat-icon-button
+        [ngClass]="{'downvoted': hasDownvoted}"
+        (click)="downvote(); $event.stopPropagation()"
+      >
+        <mat-icon>thumb_down</mat-icon>
+      </button>
+    </div>
+
+    <div class="action-group center">
+      <button mat-icon-button>
+        <mat-icon style="color: cornflowerblue">comments</mat-icon>
+      </button>
+      <span>{{ comments }}</span>
+    </div>
+
+    <div class="action-group center">
+      <button mat-icon-button>
+        <mat-icon>share</mat-icon>
+      </button>
+    </div>
+
+    <div class="action-group center">
+      <button mat-icon-button>
+        <mat-icon>bookmark_border</mat-icon>
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

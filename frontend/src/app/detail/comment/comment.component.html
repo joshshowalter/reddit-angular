@@ -1,0 +1,14 @@
+<div style="border-left: 1px solid darkgrey; padding: 0 0 0 20px">
+  <div class="box">
+    <mat-icon (click)="collapse = !collapse" style="cursor: pointer; color: darkgray">
+      <span *ngIf="collapse">keyboard_arrow_right</span>
+      <span *ngIf="!collapse">keyboard_arrow_down</span>
+    </mat-icon>
+    {{ comment.body }}
+  </div>
+  <div *ngIf="!collapse">
+    <comment *ngFor="let subComment of comment.replies"
+      [comment]="subComment"
+    ></comment>
+  </div>
+</div>

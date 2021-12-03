@@ -1,0 +1,59 @@
+
+@import '~@angular/material/theming';
+
+.mat-card {
+  @include mat-elevation-transition;
+  @include mat-elevation(2);
+
+  background-color: white;
+  cursor: pointer;
+  transition: transform 70ms linear;
+
+  &:hover {
+    transform: translateY(-2px);
+    @include mat-elevation(7);
+  }
+}
+
+.mat-card-subtitle {
+  color: #6f6f6f;
+}
+
+.mat-card-content {
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.mat-card-actions {
+  display: flex;
+  justify-content: center;
+  color: #737373;
+}
+
+.action-group {
+  margin: 0 5px;
+}
+
+.downvoted {
+  color: rgb(113, 147, 255);
+}
+
+.upvoted {
+  color: rgb(255, 69, 0);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-width {
+  width: 100%;
+  max-width: 400px;
+}
+
+iframe {
+  width: 100%;
+}
