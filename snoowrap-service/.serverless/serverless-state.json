@@ -174,7 +174,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/snoowrap-service/dev/1639546297430-2021-12-15T05:31:37.430Z/snoowrap-service.zip"
+                "S3Key": "serverless/snoowrap-service/dev/1639549327836-2021-12-15T06:22:07.836Z/snoowrap-service.zip"
               },
               "Handler": "app.server",
               "Runtime": "nodejs12.x",
@@ -192,14 +192,14 @@
               "AppLogGroup"
             ]
           },
-          "AppLambdaVersionTDkuMOEIAP0FSZrQJiogfGkaIsYnV2TUafGHDSvvFk": {
+          "AppLambdaVersionydPgmqRNvEg1oN8I0yZ3lvSQNOoOqkJpM0ngjKH7A": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "yaxMNDOWJZGMsT/JJBUGwX08KQWOKUV9/EpW0m3eaqU="
+              "CodeSha256": "YKeNBlBadDV78HQ70Z+piGJmk6b3QAX5/qRfMs5skiY="
             }
           },
           "HttpApi": {
@@ -328,7 +328,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersionTDkuMOEIAP0FSZrQJiogfGkaIsYnV2TUafGHDSvvFk"
+              "Ref": "AppLambdaVersionydPgmqRNvEg1oN8I0yZ3lvSQNOoOqkJpM0ngjKH7A"
             },
             "Export": {
               "Name": "sls-snoowrap-service-dev-AppLambdaFunctionQualifiedArn"
@@ -482,7 +482,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AppLambdaVersionTDkuMOEIAP0FSZrQJiogfGkaIsYnV2TUafGHDSvvFk"
+        "versionLogicalId": "AppLambdaVersionydPgmqRNvEg1oN8I0yZ3lvSQNOoOqkJpM0ngjKH7A"
       }
     },
     "configValidationMode": "warn",
@@ -501,10 +501,10 @@
     },
     "layers": {},
     "isDashboardMonitoringPreconfigured": false,
-    "artifact": "/Users/joshua.showalter/source/personal/reddit-angular/frontend/snoowrap-service/.serverless/snoowrap-service.zip"
+    "artifact": "/Users/joshua.showalter/source/personal/reddit-angular/snoowrap-service/.serverless/snoowrap-service.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/snoowrap-service/dev/1639546297430-2021-12-15T05:31:37.430Z",
+    "artifactDirectoryName": "serverless/snoowrap-service/dev/1639549327836-2021-12-15T06:22:07.836Z",
     "artifact": "snoowrap-service.zip"
   }
 }
