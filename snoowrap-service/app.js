@@ -11,7 +11,14 @@ const requester = new snoowrap({
   refreshToken: '26923243-VAbrtHA498O-yIxO_QtejZ0Lt28'
 });
 
-app.get('/', async (req, res, next) => {
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  // res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  next();
+});
+
+app.get('/api', async (req, res, next) => {
   res.status(200).send('Snoowrap Service is live!');
 });
 
