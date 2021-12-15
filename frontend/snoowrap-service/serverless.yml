@@ -1,0 +1,19 @@
+
+service: snoowrap-service
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+
+functions:
+  app:
+    handler: app.server # this references the file and the exported function
+    events: # this triggers lambda functions
+      - httpApi:
+          path: /
+          method: any
+      - httpApi:
+          path: /{proxy+} # all events get sent to the express router 
+          method: any
