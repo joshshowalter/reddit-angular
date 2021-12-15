@@ -1,2 +1,2 @@
 # reddit-angular
-Angular reddit client with node.js backend
+Angular Reddit client with serverless Node.js microservice
