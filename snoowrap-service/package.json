@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "serverless-http": "^2.7.0",
-    "snoowrap": "^1.23.0"
+    "snoowrap": "^1.23.0",
+    "yargs": "^17.3.1"
   }
 }

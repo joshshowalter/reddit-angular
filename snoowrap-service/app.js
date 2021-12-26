@@ -3,6 +3,7 @@ const express = require('express');
 const sls = require('serverless-http');
 const app = express();
 const utils = require('./utils.js');
+const yargs = require('yargs');
 
 const requester = new snoowrap({
   userAgent: 'becausecause',
@@ -41,5 +42,22 @@ app.get('/api/me', async (req, res) => {
   res.json(data);
 });
 
-const server = sls(app);
+
+// Server configuration
+const argv = yargs
+  .option('local', {
+    alias: '-l',
+    type: 'boolean'
+  }).argv;
+
+let server;
+if (argv.local) {
+  server = app.listen(3001, () => {
+    const port = server.address().port;
+    console.log(`Server now running on http://localhost:${port}`);
+  })
+} else {
+  server = sls(app);
+}
+
 module.exports = { server };
