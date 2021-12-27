@@ -31,6 +31,12 @@ app.get('/api/best', async (req, res) => {
   res.json(data);
 });
 
+app.get('/api/submission', async (req, res) => {
+  const id = req.query.id;
+  const data = await requester.getSubmission(id).fetch().then(postData => postData.comments);
+  res.json(data);
+})
+
 // return the entire payload instead of the core subset
 app.get('/api/bestAll', async (req, res) => {
   const data = await requester.getBest();
