@@ -19,15 +19,21 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/api', async (req, res, next) => {
+app.get('/api', async (req, res) => {
   res.status(200).send('Snoowrap Service is live!');
 });
 
 let listing; // declare the listing var that we can reference
 app.get('/api/best', async (req, res) => {
-  listing = requester.getBest();
+  listing = requester.getBest({limit: 25, show: 'all'});
   let data = await listing;
   data = data.map(obj => utils.corePayload(obj));
+  res.json(data);
+});
+
+// return the entire payload instead of the core subset
+app.get('/api/bestAll', async (req, res) => {
+  const data = await requester.getBest({limit: 25, show: 'all'});
   res.json(data);
 });
 
@@ -35,11 +41,23 @@ app.get('/api/submission', async (req, res) => {
   const id = req.query.id;
   const data = await requester.getSubmission(id).fetch().then(postData => postData.comments);
   res.json(data);
-})
+});
 
-// return the entire payload instead of the core subset
-app.get('/api/bestAll', async (req, res) => {
-  const data = await requester.getBest();
+app.get('/api/upvote', async (req, res) => {
+  const id = req.query.id;
+  const data = await requester.getSubmission(id).upvote();
+  res.json(data);
+});
+
+app.get('/api/downvote', async (req, res) => {
+  const id = req.query.id;
+  const data = await requester.getSubmission(id).downvote();
+  res.json(data);
+});
+
+app.get('/api/post', async (req, res) => {
+  const id = req.query.id;
+  const data = await requester.getSubmission(id).fetch();
   res.json(data);
 });
 
